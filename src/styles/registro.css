@@ -1,0 +1,52 @@
+
+.registro-container {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario */
+    padding: 20px;
+    text-align: center; /* Centra el texto */
+  }
+
+  .registro-container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+  }
+  
+  .header-image {
+    width: 40%; /* O el tamaño que desees */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio entre la imagen y el formulario */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Espacio entre los elementos del formulario */
+  }
+  
+  input {
+    padding: 10px; /* Espacio interno del input */
+    border: 1px solid #ccc; /* Bordes del input */
+    border-radius: 55px; /* Bordes redondeados */
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color al pasar el cursor */
+  }
+  
+  p {
+    margin-top: 25px; /* Espacio superior del texto de enlace */
+  }
+  

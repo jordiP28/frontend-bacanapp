@@ -1,0 +1,21 @@
+.nosotros-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px;
+    text-align: center; /* Centra el texto */
+}
+
+.equipo-imagen {
+    width: 40%; /* Imagen responsiva */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+h2 {
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+h3 {
+    margin-top: 20px; /* Espacio encima del subtítulo */
+}

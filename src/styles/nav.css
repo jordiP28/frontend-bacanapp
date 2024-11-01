@@ -1,0 +1,31 @@
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar.open {
+    display: flex;
+  }
+  
+  .menu-icon {
+    cursor: pointer;
+    font-size: 30px;
+  }
+  
+  .navbar a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .navbar a:hover {
+    background-color: #f0f0f0;
+  }

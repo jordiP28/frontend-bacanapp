@@ -1,0 +1,47 @@
+.diversion-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px;
+}
+
+.diversion-list {
+    list-style-type: none; /* Elimina las viñetas de la lista */
+    padding: 0; /* Elimina el padding predeterminado */
+    max-height: 400px; /* Altura máxima para el scroll */
+    overflow-y: auto; /* Permite el scroll vertical */
+    border: 1px solid #ccc; /* Añade un borde para que se vea más claro */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.diversion-item {
+    display: flex; /* Utiliza flexbox para alinear imagen y descripción */
+    margin-bottom: 20px; /* Espacio entre los elementos de la lista */
+    padding: 10px; /* Espaciado interno */
+    transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+}
+
+.diversion-item:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+}
+
+.diversion-imagen {
+    width: 40%; /* O el tamaño que desees */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 20px; /* Espacio entre la imagen y la descripción */
+    border-radius: 8%; /* Bordes redondeados para las imágenes */
+}
+
+.diversion-descripcion {
+    flex: 1; /* Permite que la descripción ocupe el espacio restante */
+}
+
+h3 {
+    margin: 0; /* Elimina el margen superior e inferior del título */
+}
+.encabezado-imagen {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 20px; 
+  }

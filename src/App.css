@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+/* App.css */
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  background-color: white; /* Color de fondo */
+}
+
+.logo {
+  width: 200px; /* Ajusta el tamaño del logo */
+}

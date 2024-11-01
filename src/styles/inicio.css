@@ -1,0 +1,44 @@
+.inicio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia los elementos entre sí */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: white; /* Color de fondo */
+    padding: 20px; /* Espacio interno */
+}
+
+.button-image {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+   
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Ocupa el ancho completo */
+    align-items: center; /* Centra los botones horizontalmente */
+    margin-bottom: auto;
+}
+
+.button-wrapper {
+    width: 100%; /* Hace que el botón ocupe el ancho completo */
+    margin: 10px 0; /* Espacio entre botones */
+}
+
+button {
+    width: 80%; /* Ancho del botón */
+    padding: 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border: none; /* Sin borde */
+    border-radius: 30px; /* Esquinas redondeadas */
+    background-color: #f65e39; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+button:hover {
+    background-color: darkorange; /* Color al pasar el mouse */
+}
