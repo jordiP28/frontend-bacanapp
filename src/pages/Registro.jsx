@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link para navegar
-import '../styles/registro.css'; // Importa los estilos
-import logo2 from '../assets/img/logo2.PNG'; // Asegúrate de que la ruta sea correcta
+import { Link } from 'react-router-dom';
+import '../styles/registro.css';
+import logo2 from '../assets/img/logo2.PNG';
+import { register } from '../services/authService'; // Importa el servicio de registro
 
 const Register = () => {
   const [nombres, setNombres] = useState('');
   const [correo, setCorreo] = useState('');
   const [celular, setCelular] = useState('');
   const [contraseña, setContraseña] = useState('');
+  const [error, setError] = useState(''); // Para manejar errores
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Nombres:', nombres);
-    console.log('Correo:', correo);
-    console.log('Celular:', celular);
-    console.log('Contraseña:', contraseña);
-    // Aquí puedes agregar la lógica para registrar al usuario
+    setError(''); // Reinicia el error en cada intento
+
+    try {
+      const userData = await register(nombres, correo, celular, contraseña);
+      console.log('Usuario registrado:', userData);
+      // Aquí puedes redirigir al usuario a la página de inicio de sesión o manejar el estado
+    } catch (err) {
+      setError('Error en el registro. Verifica tus datos.');
+    }
   };
 
   return (
@@ -63,6 +69,7 @@ const Register = () => {
           />
         </div>
         <button type="submit">Registrarse</button>
+        {error && <p className="error-message">{error}</p>} {/* Mostrar mensaje de error */}
       </form>
       <p>
         ¿Ya tienes una cuenta? <Link to="/Ingreso">Inicia sesión aquí</Link>

@@ -17,7 +17,7 @@ import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Inicializa el estado de autenticación Cambiar esta logica para validar cuando un usuario esta autenticado
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Inicializa como false
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,6 +26,10 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
 
   return (
     <Router>
@@ -38,7 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/Inicio" />} />
             <Route path="/Inicio" element={<Inicio />} />
-            <Route path="/Ingreso" element={<Ingreso />} />
+            <Route path="/Ingreso" element={<Ingreso onLogin={handleLogin} />} />
             <Route path="/Registro" element={<Registro />} />
             <Route
               path="/Lugares"

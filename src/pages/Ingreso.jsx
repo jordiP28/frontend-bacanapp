@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link para navegar
-import '../styles/ingreso.css'; // Importa los estilos
-import logo2 from '../assets/img/logo2.PNG'; // Asegúrate de que la ruta sea correcta
+import { Link, useNavigate } from 'react-router-dom'; // Importa useNavigate
+import '../styles/ingreso.css';
+import logo2 from '../assets/img/logo2.PNG';
+import { login } from '../services/authService'; // Importa el servicio de autenticación
 
-const Ingreso = () => {
+const Ingreso = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); // Inicializa el hook useNavigate
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Usuario:', username);
-    console.log('Contraseña:', password);
-    // Lógica para autenticar al usuario
+    setError(''); // Reinicia el error en cada intento
+
+    try {
+      const userData = await login(username, password);
+      console.log('Usuario autenticado:', userData);
+      onLogin(); // Actualiza el estado de autenticación
+      navigate('/Lugares'); // Redirige al usuario
+    } catch (err) {
+      setError('Error en la autenticación. Verifica tus credenciales.');
+    }
   };
 
   return (
@@ -40,6 +50,7 @@ const Ingreso = () => {
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
+        {error && <p className="error-message">{error}</p>} {/* Mostrar mensaje de error */}
       </form>
       <p>
         ¿No tienes una cuenta? <Link to="/Registro">¡Regístrate aquí!</Link>
@@ -49,4 +60,3 @@ const Ingreso = () => {
 };
 
 export default Ingreso;
-

@@ -1,26 +1,45 @@
-const User = require('../models/userModel');
-const bcrypt = require('bcrypt');
+const API_URL = 'http://localhost:5000'; // Reemplaza con tu URL de API
 
-// Registro de usuario
-exports.registerUser = async (username, password) => {
-  const existingUser = await User.findOne({ username });
-  if (existingUser) {
-    throw new Error('El nombre de usuario ya está en uso');
+export const login = async (correo, contraseña) => { // Cambia username a correo
+  try {
+    const response = await fetch(`${API_URL}/api/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ correo, contraseña }), // Envía correo y contraseña
+    });
+
+    if (!response.ok) {
+      throw new Error('Error en la autenticación');
+    }
+
+    const data = await response.json();
+    return data; // Aquí puedes retornar el token o información del usuario
+  } catch (error) {
+    console.error('Error en la autenticación:', error);
+    throw error; // Propaga el error para manejarlo en el componente
   }
-  
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = new User({ username, password: hashedPassword });
-  await newUser.save();
-  
-  return { message: 'Usuario registrado con éxito' };
 };
 
-// Login de usuario
-exports.loginUser = async (username, password) => {
-  const user = await User.findOne({ username });
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    throw new Error('Credenciales inválidas');
+export const register = async (nombres, correo, celular, contraseña) => {
+  try {
+    const response = await fetch(`${API_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nombres, correo, celular, contraseña }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al registrar al usuario');
+    }
+
+    const data = await response.json();
+    return data; // Aquí puedes retornar información relevante
+  } catch (error) {
+    console.error('Error en el registro:', error);
+    throw error; // Propaga el error para manejarlo en el componente
   }
-  
-  return { message: 'Login exitoso' };
 };
