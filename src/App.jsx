@@ -12,7 +12,7 @@ import Diversion from "./pages/Diversion";
 import Restaurantes from "./pages/Restaurantes";
 import Nosotros from "./pages/Nosotros";
 import logo from "./assets/img/logoooo.png";
-import Inicio from "./pages/inicio";
+import Inicio from "./pages/Inicio";
 import "./App.css";
 
 function App() {
