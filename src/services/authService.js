@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000'; // Reemplaza con tu URL de API
+const API_URL = 'https://backend-bacanapp.onrender.com'; // Reemplaza con tu URL de API
 
 export const login = async (correo, contraseña) => { // Cambia username a correo
   try {
